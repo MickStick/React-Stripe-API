@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-
+/* configure to use local env file */
+require('dotenv').config()
 /**
  * Module dependencies.
  */
@@ -12,7 +13,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT);
 app.set('port', port);
 
 /**
@@ -86,5 +87,7 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  
+  console.log(`Listening on ${bind}`)
+  debug(`Listening on ${bind}`);
 }
