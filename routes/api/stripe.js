@@ -13,11 +13,12 @@ router.post('/stripe/charge', function(req, res, next) {
         description: desc,
         source: token.id,
       }).then(charge => {
-          console.log(charge.status)
+        
+        console.log("\x1b[32m",charge.status,"\x1b[37m")
 
-          res.status(200).json({status: true, charge: charge})
+        res.status(200).json({status: true, charge: charge})
       }).catch(e => {
-        console.error(e.message)
+        console.error("\x1b[31m",e.message,"\x1b[37m")
         res.status(400).json({status:false, error: e})
       })
 

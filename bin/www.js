@@ -88,6 +88,6 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   
-  console.log(`Listening on ${bind}`)
+  console.log("\x1b[34m",`\nListening on ${bind}`,"\x1b[37m")
   debug(`Listening on ${bind}`);
 }
